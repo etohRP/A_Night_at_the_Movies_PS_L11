@@ -73,6 +73,33 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return movies;
     }
+
+    public ArrayList<Movie> getPg13movies(String keyword) {
+        ArrayList<Movie> movies = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns= {COLUMN_ID, COLUMN_TITLE, COLUMN_GENRE, COLUMN_YEAR, COLUMN_RATING};
+        String condition = COLUMN_RATING + " Like ?";
+        String[] args = { "%" +  keyword + "%"};
+        Cursor cursor = db.query(TABLE_MOVIES, columns, condition, args,
+                null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(0);
+                String title = cursor.getString(1);
+                String singers = cursor.getString(2);
+                int year = cursor.getInt(3);
+                String rating = cursor.getString(4);
+                Movie movie = new Movie(id, title, singers, year, rating);
+                movies.add(movie);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return movies;
+    }
+
     public int updateMovie(Movie data){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

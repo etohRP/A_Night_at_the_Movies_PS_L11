@@ -51,15 +51,13 @@ public class DisplayActivity extends AppCompatActivity {
         btnShowMovies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String selectedItem = spinnerFilter.getSelectedItem().toString();
-                filteredMovieList = new ArrayList<>();
-                for (int i = 0; i < movieList.size(); i++) {
-                    if (movieList.get(i).getRating().equals(selectedItem)) {
-                        filteredMovieList.add(movieList.get(i));
-                    }
-                }
-                customAdapter = new CustomAdapter(DisplayActivity.this, R.layout.row, filteredMovieList);
-                lv.setAdapter(customAdapter);
+                DBHelper dbHelper = new DBHelper(DisplayActivity.this);
+                movieList.clear();
+
+                String filterText = "PG13";
+                movieList.addAll(dbHelper.getPg13movies(filterText));
+
+                customAdapter.notifyDataSetChanged();
             }
         });
 
