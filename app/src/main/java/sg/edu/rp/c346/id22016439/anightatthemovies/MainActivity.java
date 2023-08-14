@@ -35,10 +35,20 @@ public class MainActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper db = new DBHelper(MainActivity.this);
+                String title = etTitle.getText().toString();
+                String genre = etGenre.getText().toString();
+                String yearStr = etYear.getText().toString();
                 String selectedItem = spinnerRating.getSelectedItem().toString();
-                db.insertMovie(etTitle.getText().toString(), etGenre.getText().toString(), Integer.parseInt(etYear.getText().toString()), selectedItem);
-                Toast.makeText(MainActivity.this, "Movie Added", Toast.LENGTH_SHORT).show();
+
+                if (!title.isEmpty() && !genre.isEmpty() && !yearStr.isEmpty()) {
+                    int year = Integer.parseInt(yearStr);
+
+                    DBHelper db = new DBHelper(MainActivity.this);
+                    db.insertMovie(title, genre, year, selectedItem);
+                    Toast.makeText(MainActivity.this, "Movie Added", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

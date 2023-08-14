@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/_328d1c06751398cf9ff2ac8f8d9206c"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".EditActivity">
@@ -12,82 +13,100 @@
         android:id="@+id/tvId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:text="Movie ID" />
+        android:fontFamily="monospace"
+        android:text="Movie ID"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/etId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
+        android:inputType="text"
         android:padding="10dp"
-        android:inputType="text" />
+        android:textColorHint="#d9d6d0" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:text="Movie Title" />
+        android:fontFamily="monospace"
+        android:text="Movie Title"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
-        android:padding="10dp"
+        android:hint="Enter movie title here"
         android:inputType="text"
-        android:hint="Enter movie title here" />
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#d9d6d0" />
 
     <TextView
         android:id="@+id/tvGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:text="Genre" />
+        android:fontFamily="monospace"
+        android:text="Genre"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/etGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
-        android:padding="10dp"
+        android:hint="Enter genre here"
         android:inputType="text"
-        android:hint="Enter genre here" />
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#d9d6d0" />
 
     <TextView
         android:id="@+id/tvYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:text="Year" />
+        android:fontFamily="monospace"
+        android:text="Year"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/etYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
-        android:padding="10dp"
+        android:hint="Enter year of release here"
         android:inputType="text"
-        android:hint="Enter year of release here" />
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#d9d6d0" />
 
     <TextView
         android:id="@+id/tvRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:text="Rating" />
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="monospace"
+        android:text="Rating"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <Spinner
         android:id="@+id/spinnerr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/rating"  />
+        android:backgroundTint="#FFFFFF"
+        android:entries="@array/rating" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,6 +118,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#FF003B"
             android:text="UPDATE" />
 
         <Button
@@ -106,6 +126,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#FF003B"
             android:text="DELETE" />
     </LinearLayout>
 
@@ -113,5 +134,6 @@
         android:id="@+id/btnCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FF003B"
         android:text="CANCEL" />
 </LinearLayout>

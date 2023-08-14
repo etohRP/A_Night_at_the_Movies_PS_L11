@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#7E57C2" />
+        android:textColor="#CDB0FF" />
 
     <TextView
         android:id="@+id/textViewGenre"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FF7043" />
+        android:textColor="#FFCDBD" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#42A5F5" />
+            android:textColor="#BFE2FF" />
 
         <ImageView
             android:id="@+id/imageViewRating"

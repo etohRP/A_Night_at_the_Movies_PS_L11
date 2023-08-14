@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class EditActivity extends AppCompatActivity {
 
@@ -42,15 +43,43 @@ public class EditActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper db = new DBHelper(EditActivity.this);
+                String title = etTitle.getText().toString();
+                String genre = etGenre.getText().toString();
+                String yearStr = etYear.getText().toString();
                 String selectedItem = spinnerRating.getSelectedItem().toString();
-                data.setTitle(etTitle.getText().toString());
-                data.setGenre(etGenre.getText().toString());
-                data.setYear(Integer.parseInt(etYear.getText().toString()));
-                data.setRating(selectedItem);
-                db.updateMovie(data);
-                db.close();
-                finish();
+
+                if (title.isEmpty() || genre.isEmpty() || yearStr.isEmpty()) {
+                    // Display an error message indicating that all fields are compulsory
+                    Toast.makeText(EditActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    int year = Integer.parseInt(yearStr);
+
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(EditActivity.this);
+                    alertDialogBuilder.setTitle("Confirm Update");
+                    alertDialogBuilder.setMessage("Are you sure you want to update the movie?");
+                    alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            DBHelper db = new DBHelper(EditActivity.this);
+                            data.setTitle(title);
+                            data.setGenre(genre);
+                            data.setYear(year);
+                            data.setRating(selectedItem);
+                            db.updateMovie(data);
+                            db.close();
+                            finish();
+                        }
+                    });
+                    alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Do nothing or handle cancellation
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
             }
         });
 
